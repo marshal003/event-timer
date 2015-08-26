@@ -26,3 +26,18 @@
 .timer > #current-date{
   margin-top: 20px;
 }
+.timer .timer-box {
+  display: inline-block;
+  padding:0;
+  margin: 0;
+}
+
+.message {
+  font-size: 14px;
+  text-indent: 12px;
+}
+
+.count-down:after {
+  content: ":" ;
+  padding-left: 7px;
+}
