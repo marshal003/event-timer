@@ -1,0 +1,28 @@
+/* Styles go here */
+
+.timer{
+  background-color: #fc8500;
+  width: 400px;
+  height: 200px;
+  border-radius: 2px;
+  padding: 20px;
+  font-weight: 900;
+  font-size: 24px;
+}
+
+.timer > .event-name {
+  font-size: 36px;
+}
+
+.timer > .countdown {
+  margin-top: 20px;
+  font-size: 60px;
+}
+
+.timer > .counter-names {
+  font-size: 20px;
+}
+
+.timer > #current-date{
+  margin-top: 20px;
+}
