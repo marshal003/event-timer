@@ -54,8 +54,8 @@
   var updateDomWithRemainingTime = function(){
     var seconds = Math.floor(totalSecondsRemaining % 60),
       minutes = Math.floor(totalSecondsRemaining / 60) % 60,
-      hours = Math.floor(totalSecondsRemaining / (60 * 60)) % 60,
-      days = Math.floor(totalSecondsRemaining / (24 * 60 * 60)) % 24;
+      hours = Math.floor(totalSecondsRemaining / (60 * 60)) % 24,
+      days = Math.floor(totalSecondsRemaining / (24 * 60 * 60));
     
     $("#days").html(days);
     $("#hours").html(hours);
