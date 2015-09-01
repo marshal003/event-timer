@@ -5,7 +5,6 @@
   
   It uses Jquery only for DOM manipulation, but again that can be simple done
   using native APIs.
-  http://plnkr.co/edit/QTLCXiqCdLgPrgbrN44d?p=preview
   
     
 */
@@ -31,8 +30,11 @@
   
   var counter = function(){
     totalSecondsRemaining = totalSecondsRemaining - 1;
+    if (totalSecondsRemaining < 0) {
+      clearInterval(timer);
+      totalSecondsRemaining = 0;
+    }
     updateDomWithRemainingTime();
-    checkEventDueDate();
   };
   
   var getDateString = function(){
@@ -44,25 +46,21 @@
     
   };
   
-  var checkEventDueDate = function(){
-    if (totalSecondsRemaining <= 0) {
-      clearInterval(timer);
-    }  
-  };
-
-  
   var updateDomWithRemainingTime = function(){
     var seconds = Math.floor(totalSecondsRemaining % 60),
       minutes = Math.floor(totalSecondsRemaining / 60) % 60,
-      hours = Math.floor(totalSecondsRemaining / (60 * 60)) % 60,
-      days = Math.floor(totalSecondsRemaining / (24 * 60 * 60)) % 24;
+      hours = Math.floor(totalSecondsRemaining / (60 * 60)) % 24,
+      days = Math.floor(totalSecondsRemaining / (24 * 60 * 60));
     
-    $("#days").html(days);
-    $("#hours").html(hours);
-    $("#seconds").html(seconds);
-    $("#minutes").html(minutes);
+    $("#days").html(days >= 10 ? days : "0" + days);
+    $("#hours").html(hours >= 10 ? hours : "0" + hours);
+    $("#seconds").html(seconds >= 10 ? seconds : "0" + seconds);
+    $("#minutes").html(minutes >= 10  ? minutes : "0" + minutes);
     $("#current-date").html(getDateString());
     
   };
   
   var timer = setInterval(counter, 1000);
+  
+  
+
